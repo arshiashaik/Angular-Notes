@@ -50,39 +50,40 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
      }
      ```
    - Optional Parameters:
-    ```typescript
+      ```typescript
       function greet(name?: string) {
-          if (name) {
-              return `Hello, ${name}!`;
+        if (name) {
+          return `Hello, ${name}!`;
           } else {
               return 'Hello!';
-             }
             }
+          }
      ```
-    Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
+      Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
    
-  - Default Parameters
-   ```typescript
-   function greet(name: string = 'World') {
-    return `Hello, ${name}!`;
-   }
-
-   Default parameter values are assigned if no argument is provided during the function call.
- - Rest Parameters
-  ```
-   function addAll(...nums: number[]): number {
-    return nums.reduce((total, num) => total + num, 0);
-   }
-   const numbers = [1, 2, 3, 4, 5];
-   console.log(addAll(...numbers)); 
-  ```
-  Rest parameters allow functions to accept any number of arguments as an array.
- -  Generic Functions
-  ```
-   function getItems<T>(items: T[]): T[] {
-      return new Array<T>().concat(items);
-   }
-   let concatResult = getItems<number>([1, 2, 3, 4, 5]);
-   let concatString = getItems<string>(["a", "b", "c", "d", "e"]);
-  ```
-  Generic functions enable writing reusable code that works with different types.
+    - Default Parameters
+      ```typescript
+      function greet(name: string = 'World') {
+        return `Hello, ${name}!`;
+      }
+      ```
+      Default parameter values are assigned if no argument   is provided during the function call.
+      
+    - Rest Parameters
+      ```typescript
+      function addAll(...nums: number[]): number {
+        return nums.reduce((total, num) => total + num, 0);
+      }
+      const numbers = [1, 2, 3, 4, 5];
+      console.log(addAll(...numbers)); 
+      ```
+       Rest parameters allow functions to accept any number of arguments as an array.
+    -  Generic Functions
+        ```typescript
+        function getItems<T>(items: T[]): T[] {
+        return new Array<T>().concat(items);
+        }
+        let concatResult = getItems<number>([1, 2, 3, 4, 5]);
+        let concatString = getItems<string>(["a", "b", "c",    "d", "e"]);
+        ```
+          Generic functions enable writing reusable code that works with different types.
