@@ -87,3 +87,11 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
         let concatString = getItems<string>(["a", "b", "c",    "d", "e"]);
         ```
           Generic functions enable writing reusable code that works with different types.
+5. **Classes**: With ES6, TypeScript provides class syntax for object-oriented programming, eliminating the need for Immediately Invoked Function Expressions (IIFEs) used in pre-ES6 JavaScript.
+
+6. **TypeScript Decorators**: TypeScript supports decorators for classes and interfaces, allowing developers to add metadata or modify behavior at runtime.
+
+7. **ES Modules**: TypeScript supports ES Modules, providing a standardized way to organize and share code between files.
+
+8. **tsconfig.json File**: The `tsconfig.json` file is used to configure the TypeScript compiler (`tsc`) options for a project. It specifies compiler options, file inclusion/exclusion, and project references.
+
