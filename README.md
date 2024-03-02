@@ -1,11 +1,11 @@
-# Angular-Notes
+# Angular Notes
 
 ## TypeScript Overview
 
-## Introduction
+### Introduction
 TypeScript is a superset of JavaScript that offers type safety and compiles down to JavaScript. It provides additional features to JavaScript developers, making code more robust and maintainable.
 
-## Features
+### Features
 1. **Type Safety**: TypeScript introduces static typing, allowing developers to define types for variables, parameters, and return values. This helps catch type-related errors during development rather than at runtime.
 2. **Data Types**:
    - `string`: `let name: string = "Santos"`
@@ -42,7 +42,7 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
          return num1 + num2;
      }
      ```
-     In this case, if the return keyword is omitted or if the return type mismatches, TypeScript will highlight the issue, providing better      error detection.
+     In this case, if the return keyword is omitted or if the return type mismatches, TypeScript will highlight the issue, providing better error detection.
    - Arrow function:
      ```typescript
      const sub = (num1: number, num2: number) => {
@@ -66,26 +66,23 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
    function greet(name: string = 'World') {
     return `Hello, ${name}!`;
    }
-   ```
+
    Default parameter values are assigned if no argument is provided during the function call.
-  - Rest Parameters
+ - Rest Parameters
   ```
    function addAll(...nums: number[]): number {
     return nums.reduce((total, num) => total + num, 0);
    }
-
-const numbers = [1, 2, 3, 4, 5];
-console.log(addAll(...numbers)); 
-```
-   Rest parameters allow functions to accept any number of arguments as an array.
-
-- Generic Functions
-```
-function getItems<T>(items: T[]): T[] {
-    return new Array<T>().concat(items);
-}
-
-let concatResult = getItems<number>([1, 2, 3, 4, 5]);
-let concatString = getItems<string>(["a", "b", "c", "d", "e"]);
-```
-Generic functions enable writing reusable code that works with different types.
+   const numbers = [1, 2, 3, 4, 5];
+   console.log(addAll(...numbers)); 
+  ```
+  Rest parameters allow functions to accept any number of arguments as an array.
+ -  Generic Functions
+  ```
+   function getItems<T>(items: T[]): T[] {
+      return new Array<T>().concat(items);
+   }
+   let concatResult = getItems<number>([1, 2, 3, 4, 5]);
+   let concatString = getItems<string>(["a", "b", "c", "d", "e"]);
+  ```
+  Generic functions enable writing reusable code that works with different types.
