@@ -51,15 +51,15 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
      ```
    - Optional Parameters:
     ```typescript
-    function greet(name?: string) {
-    if (name) {
-        return `Hello, ${name}!`;
-    } else {
-        return 'Hello!';
-       }
-      }
-    ```
-   Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
+      function greet(name?: string) {
+          if (name) {
+              return `Hello, ${name}!`;
+          } else {
+              return 'Hello!';
+             }
+            }
+     ```
+    Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
    
   - Default Parameters
    ```typescript
