@@ -42,36 +42,37 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
          return num1 + num2;
      }
      ```
-     In this case, if the return keyword is omitted or if the return type mismatches, TypeScript will highlight the issue, providing better error detection.
+     In this case, if the return keyword is omitted or if the return type mismatches, TypeScript will highlight the issue, providing better      error detection.
    - Arrow function:
-     ```
+     ```typescript
      const sub = (num1: number, num2: number) => {
         return num1 - num2;
      }
      ```
-  - Optional Parameters:
-    ```
+   - Optional Parameters:
+    ```typescript
     function greet(name?: string) {
     if (name) {
         return `Hello, ${name}!`;
     } else {
         return 'Hello!';
-    }
-   }
-   ```
-Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
- - Default Parameters
-   ```
+       }
+      }
+    ```
+   Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
+   
+  - Default Parameters
+   ```typescript
    function greet(name: string = 'World') {
     return `Hello, ${name}!`;
    }
    ```
-Default parameter values are assigned if no argument is provided during the function call.
-- Rest Parameters
+   Default parameter values are assigned if no argument is provided during the function call.
+  - Rest Parameters
   ```
    function addAll(...nums: number[]): number {
     return nums.reduce((total, num) => total + num, 0);
-}
+   }
 
 const numbers = [1, 2, 3, 4, 5];
 console.log(addAll(...numbers)); 
