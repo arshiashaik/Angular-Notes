@@ -95,9 +95,6 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
 
 8. **tsconfig.json File**: The `tsconfig.json` file is used to configure the TypeScript compiler (`tsc`) options for a project. It specifies compiler options, file inclusion/exclusion, and project references.
 
-## Angular Installation and Basics
-
-# Angular Notes
 
 ## Installation and Setup
 
