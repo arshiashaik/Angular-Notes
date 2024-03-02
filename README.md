@@ -43,6 +43,48 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
      }
      ```
      In this case, if the return keyword is omitted or if the return type mismatches, TypeScript will highlight the issue, providing better error detection.
+   - Arrow function:
+     ```
+     const sub = (num1: number, num2: number) => {
+        return num1 - num2;
+     }
+     ```
+  - Optional Parameters:
+    ```
+    function greet(name?: string) {
+    if (name) {
+        return `Hello, ${name}!`;
+    } else {
+        return 'Hello!';
+    }
+   }
+   ```
+Optional parameters can be specified using a question mark (?), allowing flexibility in function calls.
+ - Default Parameters
+   ```
+   function greet(name: string = 'World') {
+    return `Hello, ${name}!`;
+   }
+   ```
+Default parameter values are assigned if no argument is provided during the function call.
+- Rest Parameters
+  ```
+   function addAll(...nums: number[]): number {
+    return nums.reduce((total, num) => total + num, 0);
+}
 
-## Conclusion
-TypeScript enhances JavaScript by adding static typing and other advanced features, improving code quality and maintainability. It's widely adopted in modern web development, especially in frameworks like Angular.
+const numbers = [1, 2, 3, 4, 5];
+console.log(addAll(...numbers)); 
+```
+   Rest parameters allow functions to accept any number of arguments as an array.
+
+- Generic Functions
+```
+function getItems<T>(items: T[]): T[] {
+    return new Array<T>().concat(items);
+}
+
+let concatResult = getItems<number>([1, 2, 3, 4, 5]);
+let concatString = getItems<string>(["a", "b", "c", "d", "e"]);
+```
+Generic functions enable writing reusable code that works with different types.
