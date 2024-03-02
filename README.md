@@ -112,11 +112,11 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
    - `angular.json`: Contains all the information related to the current workspace.
    - `.gitignore`
    - `.editorconfig`
-   - `.browserslistrc`: Configuration files and settings.
+   - `.browserslistrc`: his file has all the browsers our app supports or browser user wants his application to support  I) inside the src folder we will write all our code.
    - `src` folder: Contains all the user code.
 
 4. **Monorepo**:
-   In Angular development, a monorepo refers to a single repository containing multiple projects or applications. This approach streamlines version control, dependency management, and code sharing across projects.
+   In Angular development, a monorepo refers to a single repository containing multiple projects or applications. This approach streamlines version control, dependency management, and code sharing across projects. Within a monorepo, each Angular application or library resides in its own directory, allowing for centralized configuration and easier collaboration among developers. 
 
 5. **Inside the src Folder**:
    - `test.ts`: Used by Karma.
@@ -137,5 +137,8 @@ TypeScript is a superset of JavaScript that offers type safety and compiles down
         styles: [`p { color: blue; }`]
       })
       export class ExampleComponent {}
-
+7. **Components**:
+   - Views that will be rendered by the browser.
+     ```typescript
+        ng g c componentName
 
