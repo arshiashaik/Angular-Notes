@@ -12,13 +12,7 @@
      - *Structural Directives:* In Angular, structural directives are used to manipulate the DOM layout by adding, removing, or altering elements based on certain conditions.
        - `<div *ngIf="isVisible">Content to show when isVisible is true</div>`
        - `<div *ngFor="let key of objectKeys(myObject)">{{ myObject[key] }}</div>`
-       - ```
-         <div [ngSwitch]="condition">
-          <div *ngSwitchCase="'case1'">Content for case1</div>
-          <div *ngSwitchCase="'case2'">Content for case2</div>
-          <div *ngSwitchDefault>Default content</div>
-        </div>
-        ```
+       - `<div [ngSwitch]="condition"> <div *ngSwitchCase="'case1'">Content for case1</div> <div *ngSwitchCase="'case2'">Content for case2</div> <div *ngSwitchDefault>Default content</div> </div> `
      - *Attribute Directives:* In Angular, attribute directives are used to modify the behavior or appearance of DOM elements by manipulating their attributes. Attribute directives are applied to elements as attributes in HTML markup.
        - `ngClass`: Allows you to conditionally apply CSS classes to elements based on expression evaluation.
          - `<div [ngClass]="{'active': isActive, 'disabled': isDisabled}">...</div>`
