@@ -1,4 +1,4 @@
-```markdown
+
 ## Lifecycle Hooks and Component Communication
 
 - In Angular, lifecycle hooks are methods that provide visibility into key lifecycle events in the components and directives. These hooks allow you to perform actions at specific points in the component's lifecycle, such as initialization, change detection, and destruction. Lifecycle ends when the component is destroyed.
