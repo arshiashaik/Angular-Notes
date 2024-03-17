@@ -45,4 +45,115 @@ Component Communication: In Angular, there are several methods for component com
   - Components can use `@Input()` and `@Output()` decorators to define input and output properties, allowing parent and child components to communicate by passing data via these properties.
 - NgRx (Redux Pattern):
   - For complex state management and communication between components, NgRx can be used. NgRx is a state management library for Angular that implements the Redux pattern. It provides a centralized store, actions, reducers, and selectors for managing application state.
-```  
+
+### Parent and Child communication using @Input @Output:
+
+child.component.ts
+```
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <div>
+      <p>Child Component</p>
+      <p>Received message from parent: {{ message }}</p>
+      <button (click)="sendMessageToParent()">Send Message to Parent</button>
+    </div>
+  `
+})
+export class ChildComponent {
+  @Input() message: string;
+  @Output() messageToParent = new EventEmitter<string>();
+
+  sendMessageToParent() {
+    this.messageToParent.emit("Message from child component");
+  }
+}
+```
+
+parent.component.ts
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <div>
+      <p>Parent Component</p>
+      <app-child [message]="parentMessage" (messageToParent)="receiveMessageFromChild($event)"></app-child>
+    </div>
+  `
+})
+export class ParentComponent {
+  parentMessage = "Hello from parent";
+
+  receiveMessageFromChild(message: string) {
+    console.log("Received message from child:", message);
+  }
+}
+```
+
+In this example:
+
+- The ChildComponent has an @Input property called message, which receives data from the parent component.
+- It also has an @Output property called messageToParent, which emits events to the parent component.
+- When the child component button is clicked, it emits a message to the parent component using the messageToParent event emitter.
+- The ParentComponent passes data to the child component using property binding [message]="parentMessage", where parentMessage is a property defined in the parent component.
+- The parent component also listens for events emitted by the child component using (messageToParent)="receiveMessageFromChild($event)".
+- This setup allows for communication between parent and child components using @Input and @Output decorators in Angular.
+
+### Change Detection:
+
+- Change Detection in angular: Now by default each time theres a change like using a button or selecting something angular rerenders the view. Even if you change something in a parent component its children are also rerendered to overide this behavior you can use onPush change Detection
+
+```
+import { ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class ExampleComponent {
+  // Component logic
+}
+```
+OnPush Change Detection: This is a change detection strategy where Angular only checks for changes in the component's inputs (i.e., @Input properties) and not for changes in its internal state unless explicitly triggered. You can enable this strategy by setting the changeDetection property of the component to ChangeDetectionStrategy.OnPush. But for this to work you needto keep a fe wthings in mind 1. you should have @Input/@Output 2. you should have immutable data for an instance do not chnage the data by using .push instead use the spread operator like so (...arr, rooms). This creates an entirely new array instead of mutating the current one.
+
+- Some other ways to avoid unnecessary actions use the below:
+a. ure Pipes: If you have custom pipes, ensure they are pure pipes (@Pipe({ pure: true })). Pure pipes are only recalculated if their input parameters change, reducing unnecessary recalculations.
+b. rackBy Function: When using *ngFor directive to iterate over a list, provide a track by function to help Angular identify which items have changed. This can significantly improve performance when dealing with lists.
+```
+<div *ngFor="let item of items; trackBy: trackByFn">
+  {{ item }}
+</div>
+```
+```
+trackByFn(index: number, item: any): any {
+  return item.id; // Use a unique identifier for the item
+}
+```
+c. Detached Change Detection: In rare cases where you need fine-grained control over change detection, you can manually detach and reattach change detection using ChangeDetectorRef. This can be useful for optimizing specific parts of your application.
+
+```
+import { ChangeDetectorRef } from '@angular/core';
+
+constructor(private cdr: ChangeDetectorRef) {}
+
+ngAfterViewInit() {
+  this.cdr.detach(); // Detach change detection
+}
+
+someMethod() {
+  // Perform some operations
+  this.cdr.detectChanges(); // Reattach and run change detection
+}
+```
+
+- ngOnChanges can only be applied to those components or directives that have an @Input property
+
+- ngDoCheck: It's important to use ngDoCheck judiciously, as it can impact the performance of your application if used incorrectly or excessively. It's typically used when you need to perform manual change detection for optimizations or when working with complex state management that Angular's default change detection mechanism might not handle efficiently.
+
+
